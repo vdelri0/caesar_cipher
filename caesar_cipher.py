@@ -10,7 +10,7 @@ def encrypt(text, shift):
         position = alphabet.index(letter)
         new_position = position + shift
         # print(f"Alphabet length: {len(alphabet)}\n")
-        # print(f"Letter shift: {new_position}\n")
+        # print(f"New position: {new_position}\n")
 
         if new_position >= len(alphabet):
             new_position = new_position - len(alphabet)
@@ -18,4 +18,19 @@ def encrypt(text, shift):
 
     print(f"The encoded text is {encrypted}")
 
-encrypt(text, shift)
+def decrypt(text, shift):
+    decrypted = ""
+    for letter in text:
+        position = alphabet.index(letter)
+        new_position = position - shift
+        # print(f"Alphabet length: {len(alphabet)}\n")
+        # print(f"New position: {new_position}\n")
+
+        decrypted += alphabet[new_position]
+
+    print(f"The decoded text is: {decrypted}")
+
+if direction == 'encode':
+    encrypt(text, shift)
+else:
+    decrypt(text, shift)
